@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Joshfit Personal Training — Personal training, nutrition & diet plans, online classes, morning circuits. Great Yarmouth & Lowestoft. Est. 2014. 07889 180224." />
+  <title>Joshfit | Personal Training & Nutrition | Great Yarmouth & Lowestoft</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink:      '#07090d',
+            panel:    '#0f1318',
+            card:     '#181d28',
+            lift:     '#20273a',
+            electric: '#C8FF00',
+            'elec-dim':'#96c200',
+            cream:    '#f0efe8',
+          },
+          fontFamily: {
+            display: ['Barlow Condensed', 'Impact', 'sans-serif'],
+            sans:    ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .hero-bg {
+      background-image: url('images/hero-poster.jpg');
+      background-size: cover;
+      background-position: center 20%;
+    }
+
+    .electric-rule {
+      background: linear-gradient(90deg, transparent, #C8FF00, transparent);
+      height: 1px;
+    }
+
+    .service-card { transition: border-color 0.2s, transform 0.2s; }
+    .service-card:hover { border-color: rgba(200,255,0,0.4); transform: translateY(-3px); }
+
+    .food-card { transition: transform 0.3s; }
+    .food-card:hover { transform: scale(1.02); }
+
+    .plyr--audio .plyr__controls {
+      background: #181d28;
+      border: 1px solid rgba(200,255,0,0.2);
+      border-radius: 12px;
+      color: #f0efe8;
+    }
+    .plyr__control--overlaid { background: #C8FF00 !important; }
+    .plyr__progress__buffer { background: rgba(200,255,0,0.15); }
+    .plyr__progress input[type=range]::-webkit-slider-runnable-track { background: rgba(200,255,0,0.25); }
+    .track-item.active { border-color: rgba(200,255,0,0.5); background: rgba(200,255,0,0.06); }
+
+    .price-row:nth-child(even) { background: rgba(255,255,255,0.025); }
+    .whatsapp-btn { background: #25D366; }
+    .whatsapp-btn:hover { background: #1ebe5a; }
+    .electric-btn { background: #C8FF00; color: #07090d; }
+    .electric-btn:hover { background: #d8ff33; }
+
+    .before-after-img { filter: grayscale(20%); }
+  </style>
+</head>
+<body class="bg-ink text-cream font-sans">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-ink/90 backdrop-blur-sm border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div>
+        <span class="font-display font-black text-2xl tracking-widest uppercase text-electric">JOSHFIT</span>
+        <span class="text-cream/35 text-xs font-sans font-normal tracking-wider block -mt-1">PERSONAL TRAINING · EST. 2014</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="tel:07889180224" class="hidden sm:block text-cream/50 text-sm hover:text-cream transition-colors">07889 180224</a>
+        <a href="#book"
+           class="electric-btn font-bold text-sm px-5 py-2.5 rounded-xl transition-all hover:scale-105">
+          Book a Session
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-end justify-center overflow-hidden hero-bg pt-16">
+    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 pb-20 text-center w-full">
+      <p class="text-electric/70 text-xs tracking-[0.4em] uppercase mb-4">Great Yarmouth & Lowestoft · Est. 2014</p>
+      <h1 class="font-display font-black text-7xl md:text-9xl leading-none uppercase mb-4">
+        Stop thinking.<br /><span class="text-electric">Start.</span>
+      </h1>
+      <p class="text-cream/55 text-sm mb-8 max-w-lg mx-auto">Your trainer stepped on stage in 2023. The method that got him there is available to you, starting this week.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20book%20a%20session"
+           target="_blank" rel="noopener"
+           class="whatsapp-btn text-white font-bold text-lg px-8 py-4 rounded-2xl transition-all hover:scale-105 flex items-center justify-center gap-3">
+          <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.1 1.51 5.833L.055 23.4l5.7-1.493A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.5-5.4-1.39l-.387-.23-4.016 1.053 1.07-3.912-.252-.4A9.952 9.952 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Book on WhatsApp
+        </a>
+        <a href="tel:07889180224"
+           class="border border-cream/20 text-cream font-bold text-lg px-8 py-4 rounded-2xl hover:border-electric/50 hover:text-electric transition-all flex items-center justify-center gap-3">
+          <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Call 07889 180224
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <section class="bg-panel py-8 px-4 border-y border-white/5">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+      <div><div class="text-3xl font-display font-black text-electric">11</div><div class="text-cream/40 text-xs mt-1 tracking-wider uppercase">5-star reviews</div></div>
+      <div><div class="text-3xl font-display font-black text-electric">2014</div><div class="text-cream/40 text-xs mt-1 tracking-wider uppercase">Est. Great Yarmouth</div></div>
+      <div><div class="text-3xl font-display font-black text-electric">3-in-1</div><div class="text-cream/40 text-xs mt-1 tracking-wider uppercase">PT · Diet · Online</div></div>
+      <div><div class="text-3xl font-display font-black text-electric">2023</div><div class="text-cream/40 text-xs mt-1 tracking-wider uppercase">Competed on stage</div></div>
+      <div><div class="text-3xl font-display font-black text-electric">9–9</div><div class="text-cream/40 text-xs mt-1 tracking-wider uppercase">Available daily</div></div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATOR -->
+  <section class="py-20 px-4 bg-ink" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="electric-rule w-16 mx-auto mb-8 opacity-60"></div>
+      <p class="text-electric/70 text-xs tracking-[0.4em] uppercase mb-4">Why Josh is different</p>
+      <h2 class="font-display font-black text-4xl md:text-6xl uppercase leading-tight mb-6">
+        Most PTs learned nutrition<br />from YouTube.<br />
+        <span class="text-electric">Josh was your dietician first.</span>
+      </h2>
+      <p class="text-cream/55 leading-relaxed max-w-xl mx-auto">Before the private gym. Before the PT sessions. Josh worked as a qualified dietician at a local GP practice. Training and nutrition aren't two separate things he tries to balance — they're one system he's been building for over a decade.</p>
+    </div>
+  </section>
+
+  <div class="electric-rule opacity-20"></div>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 px-4 bg-panel">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12" data-aos="fade-up">
+        <p class="text-electric/60 text-xs tracking-[0.4em] uppercase mb-3">What Josh offers</p>
+        <h2 class="font-display font-black text-5xl md:text-7xl uppercase">The work.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="service-card bg-card rounded-2xl p-7 border border-white/5" data-aos="fade-up" data-aos-delay="0">
+          <div class="font-display font-black text-electric text-5xl mb-4">01</div>
+          <h3 class="font-display font-black text-2xl uppercase text-electric mb-3">Personal Training</h3>
+          <p class="text-cream/55 text-sm leading-relaxed mb-5">One-to-one in the private Joshfit gym. Bulking, slimming, strength, toning — your goal, your pace, nobody watching but Josh. Beginners are especially welcome.</p>
+          <div class="space-y-1 text-xs text-cream/40">
+            <div>📍 Fallowfields, Lowestoft NR32 4WQ</div>
+            <div>🕐 9am – 9pm daily</div>
+          </div>
+          <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20book%20a%20PT%20session" target="_blank" rel="noopener"
+             class="mt-5 block text-center border border-electric/40 text-electric text-sm font-bold py-2.5 rounded-xl hover:bg-electric/10 transition-all">Book now →</a>
+        </div>
+
+        <div class="service-card bg-card rounded-2xl p-7 border border-white/5" data-aos="fade-up" data-aos-delay="100">
+          <div class="font-display font-black text-electric text-5xl mb-4">02</div>
+          <h3 class="font-display font-black text-2xl uppercase text-electric mb-3">Nutrition & The 175 Plan</h3>
+          <p class="text-cream/55 text-sm leading-relaxed mb-5">Custom diet plans from a qualified dietician. Not a calorie app. A real plan built around your body, your lifestyle, your goal. Rochelle lost 7lbs in week one without feeling hungry.</p>
+          <div class="space-y-1 text-xs text-cream/40">
+            <div>📋 Fully personalised</div>
+            <div>🍽️ No starvation, no guesswork</div>
+          </div>
+          <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20enquire%20about%20a%20nutrition%20plan" target="_blank" rel="noopener"
+             class="mt-5 block text-center border border-electric/40 text-electric text-sm font-bold py-2.5 rounded-xl hover:bg-electric/10 transition-all">Get a plan →</a>
+        </div>
+
+        <div class="service-card bg-card rounded-2xl p-7 border border-white/5" data-aos="fade-up" data-aos-delay="200">
+          <div class="font-display font-black text-electric text-5xl mb-4">03</div>
+          <h3 class="font-display font-black text-2xl uppercase text-electric mb-3">Online Classes</h3>
+          <p class="text-cream/55 text-sm leading-relaxed mb-5">Can't make it in person? The energy travels. Live online sessions available every day 9am–9pm. Same drive, same programming, wherever you are.</p>
+          <div class="space-y-1 text-xs text-cream/40">
+            <div>💻 Any device, anywhere</div>
+            <div>🕐 9am – 9pm daily</div>
+          </div>
+          <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20know%20more%20about%20online%20sessions" target="_blank" rel="noopener"
+             class="mt-5 block text-center border border-electric/40 text-electric text-sm font-bold py-2.5 rounded-xl hover:bg-electric/10 transition-all">Enquire →</a>
+        </div>
+
+        <div class="service-card bg-card rounded-2xl p-7 border border-white/5 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+          <div class="absolute top-3 right-3 bg-electric text-ink text-xs font-black px-2 py-0.5 rounded-full">6:30AM</div>
+          <div class="font-display font-black text-electric text-5xl mb-4">04</div>
+          <h3 class="font-display font-black text-2xl uppercase text-electric mb-3">Morning Circuit Blast</h3>
+          <p class="text-cream/55 text-sm leading-relaxed mb-5">Start strong, finish stronger. Group circuit sessions at Lichfield Community Centre — Monday & Thursday mornings. 45 minutes. Full body. Worth every early alarm.</p>
+          <div class="space-y-1 text-xs text-cream/40">
+            <div>📍 Lichfield Centre, Great Yarmouth NR31</div>
+            <div>📅 Mon & Thu · 6:30–7:15am</div>
+          </div>
+          <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20join%20the%20morning%20circuit%20class" target="_blank" rel="noopener"
+             class="mt-5 block text-center electric-btn text-sm font-black py-2.5 rounded-xl hover:scale-[1.02] transition-all">Join the class →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="electric-rule opacity-20"></div>
+
+  <!-- HE COMPETES — competition section -->
+  <section class="py-20 px-4 bg-ink">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-up">
+        <p class="text-electric/60 text-xs tracking-[0.4em] uppercase mb-4">The standard</p>
+        <h2 class="font-display font-black text-5xl md:text-7xl uppercase leading-tight mb-6">
+          He doesn't just<br />coach it.<br /><span class="text-electric">He lives it.</span>
+        </h2>
+        <p class="text-cream/55 leading-relaxed mb-6">In 2023 Josh stepped on stage as a competitive bodybuilder. Every method he teaches — the training structure, the nutrition protocols, the discipline — is something he's applied to himself under competition conditions. You're not getting theory. You're getting a system that's been tested at the highest personal level.</p>
+        <blockquote class="border-l-2 border-electric pl-4">
+          <p class="text-cream/70 text-sm italic">"Seen the consistent results over the years. He guarantees professional-quality results. It is impossible not to change and improve in every aspect of a healthier and happier you."</p>
+          <cite class="text-electric/60 text-xs mt-2 block not-italic tracking-wider">— WARRIOR000PRIEST · GOOGLE</cite>
+        </blockquote>
+      </div>
+      <div class="grid grid-cols-2 gap-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="rounded-2xl overflow-hidden col-span-2">
+          <img src="images/hero-poster.jpg" alt="Josh competing on stage 2023" class="w-full h-80 object-cover object-top" loading="lazy" />
+        </div>
+        <div class="rounded-2xl overflow-hidden">
+          <img src="images/competition-1.jpg" alt="Josh bodybuilding competition" class="w-full h-48 object-cover" loading="lazy" />
+        </div>
+        <div class="rounded-2xl overflow-hidden">
+          <img src="images/competition-2.jpg" alt="Josh on stage with competitors" class="w-full h-48 object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION PROOF -->
+  <section class="py-20 px-4 bg-panel">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-12 text-center" data-aos="fade-up">
+        <p class="text-electric/60 text-xs tracking-[0.4em] uppercase mb-3">Real results</p>
+        <h2 class="font-display font-black text-5xl md:text-7xl uppercase">The proof.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div data-aos="fade-up">
+          <div class="rounded-2xl overflow-hidden border border-white/5">
+            <img src="images/transformation.jpg" alt="Client body transformation before and after" class="w-full object-cover before-after-img" loading="lazy" />
+          </div>
+          <p class="text-cream/30 text-xs text-center mt-2">Real client · Real result · No filter</p>
+        </div>
+        <div class="space-y-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-card rounded-2xl p-5 border border-white/5">
+            <div class="text-electric text-sm mb-2">★★★★★</div>
+            <p class="text-cream/75 text-sm italic leading-relaxed">"Been training with him for nearly 6 months now and lost 10 kilos, gained in strength. What a motivator Josh is — after a bad day at work he is exactly what you need."</p>
+            <p class="text-electric/60 text-xs mt-3 tracking-wider">— DAVE MCINTOSH · 10KG LOST</p>
+          </div>
+          <div class="bg-card rounded-2xl p-5 border border-white/5">
+            <div class="text-electric text-sm mb-2">★★★★★</div>
+            <p class="text-cream/75 text-sm italic leading-relaxed">"Absolutely amazing diet plan. Lost 7lbs in the first week. Thought I'd be starving but the plan is so well thought out that you feel satisfied while the results keep coming."</p>
+            <p class="text-electric/60 text-xs mt-3 tracking-wider">— ROCHELLE RIMONA · 7LBS WEEK ONE</p>
+          </div>
+          <div class="bg-card rounded-2xl p-5 border border-white/5">
+            <div class="text-electric text-sm mb-2">★★★★★</div>
+            <p class="text-cream/75 text-sm italic leading-relaxed">"Been training with Josh for nearly 3 years. High energy, high drive, pushes you to the limit. If you're not confident in the gym, Josh will teach you everything you need."</p>
+            <p class="text-electric/60 text-xs mt-3 tracking-wider">— KYLE WAKEMAN · 3 YEARS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUTRITION — The 175 Plan -->
+  <section id="nutrition" class="py-20 px-4 bg-ink">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12" data-aos="fade-up">
+        <p class="text-electric/60 text-xs tracking-[0.4em] uppercase mb-3">Nutrition services</p>
+        <h2 class="font-display font-black text-5xl md:text-7xl uppercase leading-tight">
+          Eat right.<br /><span class="text-electric">The 175 Plan.</span>
+        </h2>
+        <p class="text-cream/50 mt-4 max-w-2xl leading-relaxed">Most diets fail because they're designed for someone else. Josh builds yours from scratch — your body, your schedule, your goals. As a qualified dietician, he knows the difference between a plan that works in theory and one that works in your kitchen, at your pace, around your life.</p>
+      </div>
+
+      <!-- What the plan covers -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+        <div class="bg-card rounded-2xl p-6 border border-white/5" data-aos="fade-up" data-aos-delay="0">
+          <div class="text-2xl mb-3">🎯</div>
+          <h3 class="font-display font-black text-xl uppercase text-electric mb-2">Goal Assessment</h3>
+          <p class="text-cream/50 text-sm leading-relaxed">A full picture of where you are, where you want to be, and what's been stopping you. No judgement — just a starting point.</p>
+        </div>
+        <div class="bg-card rounded-2xl p-6 border border-white/5" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-2xl mb-3">🍽️</div>
+          <h3 class="font-display font-black text-xl uppercase text-electric mb-2">Custom Meal Plan</h3>
+          <p class="text-cream/50 text-sm leading-relaxed">Built around foods you'll actually eat, portions that satisfy, and timings that fit your day. Not a printout from the internet.</p>
+        </div>
+        <div class="bg-card rounded-2xl p-6 border border-white/5" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-2xl mb-3">📈</div>
+          <h3 class="font-display font-black text-xl uppercase text-electric mb-2">Progress & Adjust</h3>
+          <p class="text-cream/50 text-sm leading-relaxed">As your body changes, the plan changes. Josh monitors and adjusts — you stay in the results zone, not the plateau.</p>
+        </div>
+      </div>
+
+      <!-- Food imagery grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
+        <div class="food-card rounded-2xl overflow-hidden h-48 bg-card" data-aos="fade-up" data-aos-delay="0">
+          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&h=400&fit=crop&q=80"
+               alt="Grilled salmon with vegetables" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="food-card rounded-2xl overflow-hidden h-48 bg-card" data-aos="fade-up" data-aos-delay="50">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop&q=80"
+               alt="Fresh colourful salad bowl" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="food-card rounded-2xl overflow-hidden h-48 bg-card row-span-2" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&h=800&fit=crop&q=80"
+               alt="Meal prep containers" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="food-card rounded-2xl overflow-hidden h-48 bg-card" data-aos="fade-up" data-aos-delay="0">
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=400&fit=crop&q=80"
+               alt="Healthy protein bowl" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="food-card rounded-2xl overflow-hidden h-48 bg-card" data-aos="fade-up" data-aos-delay="50">
+          <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&h=400&fit=crop&q=80"
+               alt="Lean protein meal" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="food-card rounded-2xl overflow-hidden h-48 bg-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600&h=400&fit=crop&q=80"
+               alt="Healthy burger wrap" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="food-card rounded-2xl overflow-hidden h-48 bg-card" data-aos="fade-up" data-aos-delay="150">
+          <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&h=400&fit=crop&q=80"
+               alt="Overnight oats healthy breakfast" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="text-center" data-aos="fade-up">
+        <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20know%20more%20about%20The%20175%20Plan"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 whatsapp-btn text-white font-bold text-lg px-10 py-4 rounded-2xl transition-all hover:scale-105">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.1 1.51 5.833L.055 23.4l5.7-1.493A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.5-5.4-1.39l-.387-.23-4.016 1.053 1.07-3.912-.252-.4A9.952 9.952 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Ask Josh about The 175 Plan
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="electric-rule opacity-20"></div>
+
+  <!-- PHOTO GALLERY — gym + training shots -->
+  <section class="py-20 px-4 bg-panel">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12" data-aos="fade-up">
+        <p class="text-electric/60 text-xs tracking-[0.4em] uppercase mb-3">Inside Joshfit</p>
+        <h2 class="font-display font-black text-5xl md:text-7xl uppercase">The gym.</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="rounded-2xl overflow-hidden md:col-span-2" data-aos="fade-up">
+          <img src="images/feature.jpg" alt="Josh workout session" class="w-full h-72 object-cover" loading="lazy" />
+        </div>
+        <div class="rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+          <img src="images/hero-loop.jpg" alt="Josh rope training" class="w-full h-72 object-cover" loading="lazy" />
+        </div>
+        <div class="rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+          <img src="images/gym-1.jpg" alt="Joshfit gym equipment" class="w-full h-56 object-cover" loading="lazy" />
+        </div>
+        <div class="rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+          <img src="images/gym-2.jpg" alt="Joshfit training space" class="w-full h-56 object-cover" loading="lazy" />
+        </div>
+        <div class="rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/gallery-1.jpg" alt="Josh with gym equipment" class="w-full h-56 object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO GALLERY — swap src when videos arrive -->
+  <section id="videos" class="py-20 px-4 bg-ink">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12" data-aos="fade-up">
+        <p class="text-electric/60 text-xs tracking-[0.4em] uppercase mb-3">Sessions in action</p>
+        <h2 class="font-display font-black text-5xl md:text-7xl uppercase">See it.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="md:col-span-2" data-aos="fade-up">
+          <div class="rounded-2xl overflow-hidden bg-card border border-white/5">
+            <video id="feature-video" class="plyr-video w-full" controls playsinline poster="images/feature.jpg">
+              <source src="images/feature.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div data-aos="fade-up" data-aos-delay="100">
+            <div class="rounded-2xl overflow-hidden bg-card border border-white/5">
+              <video id="gallery-video-1" class="plyr-video w-full" controls playsinline poster="images/gym-1.jpg">
+                <source src="images/gallery-1.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="150">
+            <div class="rounded-2xl overflow-hidden bg-card border border-white/5">
+              <video id="gallery-video-2" class="plyr-video w-full" controls playsinline poster="images/gym-2.jpg">
+                <source src="images/gallery-2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="py-20 px-4 bg-panel">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-10" data-aos="fade-up">
+        <div class="electric-rule w-10 opacity-60 mb-3"></div>
+        <h2 class="font-display font-black text-5xl md:text-7xl uppercase">11. All five stars.</h2>
+        <div class="flex items-center gap-3 mt-4">
+          <span class="text-electric font-display font-black text-4xl">5.0</span>
+          <span class="text-electric text-xl">★★★★★</span>
+          <span class="text-cream/35 text-sm">Google · 11 reviews</span>
+        </div>
+      </div>
+      <p class="text-center mt-6 text-cream/20 text-sm reviews-footer">All five stars · on Google</p>
+    </div>
+  </section>
+
+  <div class="electric-rule opacity-20"></div>
+
+  <!-- MUSIC PLAYER -->
+  <section class="py-16 px-4 bg-ink" data-aos="fade-up">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="text-electric/60 text-xs tracking-[0.4em] uppercase mb-2">Original tracks</p>
+        <h2 class="font-display font-black text-4xl uppercase">The sound of Joshfit.</h2>
+        <p class="text-cream/40 text-sm mt-2">Made for this. Play while you read.</p>
+      </div>
+      <audio id="joshfit-player" class="plyr-audio" controls>
+        <source src="audio/track-01.mp3" type="audio/mp3" />
+      </audio>
+      <div class="mt-4 space-y-2" id="track-list">
+        <div class="track-item flex items-center gap-3 bg-card rounded-xl px-4 py-3 cursor-pointer border border-white/5 hover:border-electric/30 transition-all active" data-src="audio/track-01.mp3">
+          <span class="text-electric text-xs w-5">01</span>
+          <span class="text-sm flex-1">TAPP OUT Anthem</span>
+          <span class="text-cream/30 text-xs">—:——</span>
+        </div>
+        <div class="track-item flex items-center gap-3 bg-card rounded-xl px-4 py-3 cursor-pointer border border-white/5 hover:border-electric/30 transition-all" data-src="audio/track-02.mp3">
+          <span class="text-electric text-xs w-5">02</span>
+          <span class="text-sm flex-1">The One Seventy Five Plan</span>
+          <span class="text-cream/30 text-xs">—:——</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINDSAY -->
+  <section class="py-16 px-4 bg-panel">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center" data-aos="fade-up">
+      <div>
+        <p class="text-electric/60 text-xs tracking-[0.4em] uppercase mb-3">The full experience</p>
+        <h2 class="font-display font-black text-4xl md:text-5xl uppercase leading-tight mb-5">
+          Train hard.<br /><span class="text-electric">Look the part.</span><br />Lindsay handles the rest.
+        </h2>
+        <p class="text-cream/50 text-sm leading-relaxed mb-6">"A full-body, full-glow-up experience with these two — fitness, beauty, and feel-good vibes all in one." — Frankie Ross</p>
+        <div class="space-y-2 text-sm text-cream/60">
+          <div class="flex gap-2"><span class="text-electric">→</span> BIAB nails — long-lasting &amp; flawless</div>
+          <div class="flex gap-2"><span class="text-electric">→</span> Spray tans — Maldives finish</div>
+          <div class="flex gap-2"><span class="text-electric">→</span> Luxury self-care treatments</div>
+        </div>
+      </div>
+      <div class="bg-card rounded-2xl p-6 border border-white/5">
+        <img src="images/josh-playful.jpg" alt="Josh and Lindsay at Joshfit" class="rounded-xl w-full object-cover h-64" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK A SESSION -->
+  <section id="book" class="py-20 px-4 bg-ink">
+    <div class="max-w-xl mx-auto text-center">
+      <div class="electric-rule w-10 opacity-60 mb-3 mx-auto"></div>
+      <h2 class="font-display font-black text-5xl md:text-7xl uppercase mb-2" data-aos="fade-up">Book a session.</h2>
+      <p class="text-cream/50 text-sm mb-8">Tell Josh what you're working towards. He'll respond on WhatsApp.</p>
+      <div class="bg-card rounded-2xl p-6 border border-white/5 text-left" data-aos="fade-up" data-aos-delay="100">
+
+        <label class="block text-xs text-cream/40 uppercase tracking-wider mb-1">Your name</label>
+        <input id="book-name" type="text" placeholder="First name"
+          class="w-full bg-lift text-cream placeholder-cream/20 rounded-xl px-4 py-3 text-sm border border-white/8 focus:outline-none focus:border-electric/50 mb-4" />
+
+        <label class="block text-xs text-cream/40 uppercase tracking-wider mb-1">Your main goal</label>
+        <select id="book-goal" class="w-full bg-lift text-cream rounded-xl px-4 py-3 text-sm border border-white/8 focus:outline-none focus:border-electric/50 mb-4">
+          <option value="">What are you working towards?</option>
+          <option>Lose weight / slim down</option>
+          <option>Build muscle / bulk up</option>
+          <option>Improve strength</option>
+          <option>Tone up</option>
+          <option>General fitness &amp; energy</option>
+          <option>Nutrition &amp; The 175 Plan</option>
+          <option>Online classes</option>
+          <option>Morning Circuit Blast (6:30am)</option>
+          <option>Not sure — want a chat first</option>
+        </select>
+
+        <label class="block text-xs text-cream/40 uppercase tracking-wider mb-1">Experience level</label>
+        <select id="book-level" class="w-full bg-lift text-cream rounded-xl px-4 py-3 text-sm border border-white/8 focus:outline-none focus:border-electric/50 mb-4">
+          <option value="">Where are you starting from?</option>
+          <option>Complete beginner — never trained</option>
+          <option>Some experience — been out of it a while</option>
+          <option>Regular but want to level up</option>
+          <option>Advanced — ready to compete</option>
+        </select>
+
+        <label class="block text-xs text-cream/40 uppercase tracking-wider mb-1">Session type</label>
+        <select id="book-type" class="w-full bg-lift text-cream rounded-xl px-4 py-3 text-sm border border-white/8 focus:outline-none focus:border-electric/50 mb-4">
+          <option value="">In-person or online?</option>
+          <option>In-person — private gym, Lowestoft</option>
+          <option>In-person — Lichfield Centre, Great Yarmouth</option>
+          <option>Online session</option>
+          <option>Either works for me</option>
+        </select>
+
+        <label class="block text-xs text-cream/40 uppercase tracking-wider mb-1">Preferred days / times</label>
+        <input id="book-time" type="text" placeholder="e.g. evenings after 6, or Saturday morning"
+          class="w-full bg-lift text-cream placeholder-cream/20 rounded-xl px-4 py-3 text-sm border border-white/8 focus:outline-none focus:border-electric/50 mb-4" />
+
+        <label class="block text-xs text-cream/40 uppercase tracking-wider mb-1">Anything Josh should know?</label>
+        <textarea id="book-notes" rows="2" placeholder="Injuries, health conditions, anything relevant..."
+          class="w-full bg-lift text-cream placeholder-cream/20 rounded-xl px-4 py-3 text-sm border border-white/8 focus:outline-none focus:border-electric/50 mb-5 resize-none"></textarea>
+
+        <p id="book-error" class="text-red-400 text-xs mb-3 hidden">Please fill in name, goal and session type.</p>
+        <button onclick="bookSession()"
+          class="w-full whatsapp-btn text-white font-bold text-lg py-4 rounded-2xl transition-all hover:scale-[1.02] flex items-center justify-center gap-3">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.1 1.51 5.833L.055 23.4l5.7-1.493A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.5-5.4-1.39l-.387-.23-4.016 1.053 1.07-3.912-.252-.4A9.952 9.952 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Send to Josh on WhatsApp
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 px-4 bg-panel border-t border-white/5">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-cream/25 text-xs">
+      <div class="font-display font-black text-electric/70 text-xl tracking-widest uppercase">Joshfit · Est. 2014</div>
+      <div class="text-center space-y-1">
+        <div>Private Gym · Fallowfields, Lowestoft NR32 4WQ</div>
+        <div>Morning Circuits · Lichfield Centre, Great Yarmouth NR31 0ER</div>
+      </div>
+      <div class="text-center">
+        <a href="tel:07889180224" class="hover:text-electric transition-colors block">07889 180224</a>
+        <div class="mt-1">Mon–Sun · 9:00am – 9:00pm</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+  function bookSession() {
+    const name  = document.getElementById('book-name').value.trim();
+    const goal  = document.getElementById('book-goal').value.trim();
+    const level = document.getElementById('book-level').value.trim();
+    const type  = document.getElementById('book-type').value.trim();
+    const time  = document.getElementById('book-time').value.trim();
+    const notes = document.getElementById('book-notes').value.trim();
+    const err   = document.getElementById('book-error');
+    if (!name || !goal || !type) { err.classList.remove('hidden'); return; }
+    err.classList.add('hidden');
+    let msg = `Hi Josh, I'd like to book a session.\n\nName: ${name}\nGoal: ${goal}`;
+    if (level) msg += `\nExperience: ${level}`;
+    msg += `\nSession type: ${type}`;
+    if (time)  msg += `\nPreferred times: ${time}`;
+    if (notes) msg += `\nNotes: ${notes}`;
+    window.open('https://wa.me/447889180224?text=' + encodeURIComponent(msg), '_blank');
+  }
+  </script>
+
+  <script>
+  const allReviews = [
+    { name:"Marie Faulkner",   initial:"M", role:"Local Guide", text:"Josh is a very patient personal trainer. Whether it's bulking, slimming, strength training or toning, he will work with you to find the right approach that fits for you and make it achievable at a level that suits you and your body." },
+    { name:"Joe",              initial:"J", role:"Google",      text:"I love my sessions with Josh and find them to benefit my mind as much as my body. His positivity and enthusiasm is infectious — you can't help but come away feeling pumped and positive. Real progress in size and strength." },
+    { name:"Warrior000Priest", initial:"W", role:"Google",      text:"An exceptional personal trainer. He is once again offering early morning sessions at Litchfield Community Centre, as well as sessions in his private gym. His approach is both friendly and inspirational. He is Mr Motivator." },
+    { name:"Dave Mcintosh",    initial:"D", role:"Google",      text:"This guy is an absolute Legend. Been training with him for nearly 6 months now and lost 10 kilos, gained in strength. What a motivator Josh is — after a bad day at work he is exactly what you need." },
+    { name:"kyle wakeman",     initial:"K", role:"Google",      text:"Been training for nearly 3 years now. High energy, high drive, pushes you to the limit. Great private PT — if you're not confident in the gym then come to Josh, he will teach you everything you need to know." },
+    { name:"Frankie Ross",     initial:"F", role:"Google",      text:"If you're thinking about starting with a personal trainer, stop thinking and book in with Josh — you won't regret it. Every session is tailored to your goals. No-BS motivation that actually gets you results." },
+    { name:"Andrej Marinak",   initial:"A", role:"Google",      text:"Training with Josh pushed me beyond limits I didn't know I had. Smart programming, real motivation, and results I can see and feel. If you want progress that sticks, this is the trainer to work with." },
+    { name:"richard adams",    initial:"R", role:"Google",      text:"Absolutely superb personal trainer. Josh's enthusiasm is really motivating. Great all round guy — friendly and puts you at ease. Have learnt all the techniques to do things properly and seen great results." },
+    { name:"Rochelle Rimona",  initial:"R", role:"Google",      text:"Absolutely amazing diet plan. Lost 7lbs in the first week. Thought I'd be starving but the diet plan is so well thought out that you feel satisfied while the results keep coming." },
+  ];
+
+  function renderReviewBatch() {
+    const section = document.getElementById('reviews');
+    if (!section) return;
+    const container = section.querySelector('.max-w-6xl');
+    if (!container) return;
+    const now = Date.now();
+    const ts  = localStorage.getItem('jf_batch_ts');
+    const idx = localStorage.getItem('jf_batch_idx');
+    let batch = 0;
+    if (ts && idx) {
+      batch = now - parseInt(ts) > 14400000
+        ? (parseInt(idx) + 1) % Math.ceil(allReviews.length / 6)
+        : parseInt(idx);
+      if (now - parseInt(ts) > 14400000) {
+        localStorage.setItem('jf_batch_ts', now.toString());
+        localStorage.setItem('jf_batch_idx', batch.toString());
+      }
+    } else {
+      localStorage.setItem('jf_batch_ts', now.toString());
+      localStorage.setItem('jf_batch_idx', '0');
+    }
+    const reviews = allReviews.slice(batch * 6, batch * 6 + 6);
+    container.querySelectorAll('.reviews-grid').forEach(g => g.remove());
+    const grid = document.createElement('div');
+    grid.className = 'reviews-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4';
+    reviews.forEach(r => {
+      const card = document.createElement('div');
+      card.className = 'bg-card rounded-2xl p-5 border border-white/5';
+      card.innerHTML = `<div class="text-electric text-sm mb-3">★★★★★</div>
+        <p class="text-cream/75 text-sm leading-relaxed italic">"${r.text}"</p>
+        <div class="mt-4 flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-full bg-electric/15 flex items-center justify-center text-electric text-xs font-black">${r.initial}</div>
+          <div><div class="text-sm font-semibold">${r.name}</div><div class="text-cream/30 text-xs">${r.role}</div></div>
+        </div>`;
+      grid.appendChild(card);
+    });
+    container.insertBefore(grid, container.querySelector('.reviews-footer'));
+  }
+  document.addEventListener('DOMContentLoaded', renderReviewBatch);
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    ['feature-video','gallery-video-1','gallery-video-2'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) new Plyr(el, { controls:['play','progress','current-time','mute','volume','fullscreen'] });
+    });
+    const audioEl = document.getElementById('joshfit-player');
+    if (audioEl) {
+      const player = new Plyr(audioEl, { controls:['play','progress','current-time','mute','volume'] });
+      document.querySelectorAll('.track-item').forEach(item => {
+        item.addEventListener('click', () => {
+          document.querySelectorAll('.track-item').forEach(t => t.classList.remove('active'));
+          item.classList.add('active');
+          player.source = { type:'audio', sources:[{ src:item.dataset.src, type:'audio/mp3' }] };
+          player.play();
+        });
+      });
+    }
+  });
+  AOS.init({ duration:700, once:true, offset:60 });
+  </script>
+
+</body>
+</html>
