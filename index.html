@@ -39,7 +39,7 @@
     .hero-bg {
       background-image: url('images/hero-poster.jpg');
       background-size: cover;
-      background-position: center 20%;
+      background-position: center 35%;
     }
 
     .electric-rule {
@@ -71,6 +71,18 @@
     .electric-btn:hover { background: #d8ff33; }
 
     .before-after-img { filter: grayscale(20%); }
+
+    .competition-grid::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -20px;
+      width: 200px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #C8FF00 60%, transparent);
+      transform: rotate(-8deg);
+      opacity: 0.25;
+    }
   </style>
 </head>
 <body class="bg-ink text-cream font-sans">
@@ -100,7 +112,7 @@
       <h1 class="font-display font-black text-7xl md:text-9xl leading-none uppercase mb-4">
         Stop thinking.<br /><span class="text-electric">Start.</span>
       </h1>
-      <p class="text-cream/55 text-sm mb-8 max-w-lg mx-auto">Your trainer stepped on stage in 2023. The method that got him there is available to you, starting this week.</p>
+      <p class="text-cream/55 text-sm mb-8 max-w-lg mx-auto">Your trainer stepped on stage and won a medal. The method that got him there is available to you, starting this week.</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20book%20a%20session"
            target="_blank" rel="noopener"
@@ -220,15 +232,15 @@
           <cite class="text-electric/60 text-xs mt-2 block not-italic tracking-wider">— WARRIOR000PRIEST · GOOGLE</cite>
         </blockquote>
       </div>
-      <div class="grid grid-cols-2 gap-3" data-aos="fade-up" data-aos-delay="100">
-        <div class="rounded-2xl overflow-hidden col-span-2">
-          <img src="images/competition-medal.jpg" alt="Josh with medal at Radius bodybuilding competition" class="w-full h-80 object-cover object-top" loading="lazy" />
+      <div class="competition-grid relative grid grid-cols-3 grid-rows-2 gap-3 h-[480px]" data-aos="fade-up" data-aos-delay="100">
+        <div class="rounded-2xl overflow-hidden row-span-2 col-span-2">
+          <img src="images/competition-medal.jpg" alt="Josh with medal at Radius bodybuilding competition" class="w-full h-full object-cover object-[center_25%]" loading="lazy" />
         </div>
         <div class="rounded-2xl overflow-hidden">
-          <img src="images/competition-1.jpg" alt="Josh bodybuilding competition" class="w-full h-48 object-cover" loading="lazy" />
+          <img src="images/competition-1.jpg" alt="Josh side tricep pose at Radius competition" class="w-full h-full object-cover object-[center_20%]" loading="lazy" />
         </div>
         <div class="rounded-2xl overflow-hidden">
-          <img src="images/competition-2.jpg" alt="Josh on stage with competitors" class="w-full h-48 object-cover" loading="lazy" />
+          <img src="images/competition-2.jpg" alt="Josh back double biceps at Radius competition" class="w-full h-full object-cover object-[center_30%]" loading="lazy" />
         </div>
       </div>
     </div>
