@@ -40,6 +40,12 @@
       background-image: url('images/hero-poster.jpg');
       background-size: cover;
       background-position: center 35%;
+      animation: heroBreath 20s ease-in-out infinite;
+    }
+
+    @keyframes heroBreath {
+      0%, 100% { background-size: 100%; }
+      50% { background-size: 108%; }
     }
 
     .electric-rule {
@@ -136,20 +142,27 @@
       <div><div class="text-3xl font-display font-black text-electric">2014</div><div class="text-cream/40 text-xs mt-1 tracking-wider uppercase">Est. Great Yarmouth</div></div>
       <div><div class="text-3xl font-display font-black text-electric">3-in-1</div><div class="text-cream/40 text-xs mt-1 tracking-wider uppercase">PT · Diet · Online</div></div>
       <div><div class="text-3xl font-display font-black text-electric">2023</div><div class="text-cream/40 text-xs mt-1 tracking-wider uppercase">Competed on stage</div></div>
-      <div><div class="text-3xl font-display font-black text-electric">9–9</div><div class="text-cream/40 text-xs mt-1 tracking-wider uppercase">Available daily</div></div>
+      <div><div class="text-3xl font-display font-black text-electric">9–9</div><div class="text-cream/40 text-xs mt-1 tracking-wider uppercase">9am – 9pm daily</div></div>
     </div>
   </section>
 
   <!-- DIFFERENTIATOR -->
   <section class="py-20 px-4 bg-ink" data-aos="fade-up">
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="electric-rule w-16 mx-auto mb-8 opacity-60"></div>
-      <p class="text-electric/70 text-xs tracking-[0.4em] uppercase mb-4">Why Josh is different</p>
-      <h2 class="font-display font-black text-4xl md:text-6xl uppercase leading-tight mb-6">
-        Most PTs learned nutrition<br />from YouTube.<br />
-        <span class="text-electric">Josh was your dietician first.</span>
-      </h2>
-      <p class="text-cream/55 leading-relaxed max-w-xl mx-auto">Before the private gym. Before the PT sessions. Josh worked as a qualified dietician at a local GP practice. Training and nutrition aren't two separate things he tries to balance — they're one system he's been building for over a decade.</p>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
+      <div class="md:col-span-3">
+        <div class="electric-rule w-16 mb-8 opacity-60"></div>
+        <p class="text-electric/70 text-xs tracking-[0.4em] uppercase mb-4">Why Josh is different</p>
+        <h2 class="font-display font-black text-4xl md:text-6xl uppercase leading-tight mb-6">
+          Most PTs learned nutrition<br />from YouTube.<br />
+          <span class="text-electric">Josh was your dietician first.</span>
+        </h2>
+        <p class="text-cream/55 leading-relaxed max-w-xl">Before the private gym. Before the PT sessions. Josh worked as a qualified dietician at a local GP practice. Training and nutrition aren't two separate things he tries to balance — they're one system he's been building for over a decade.</p>
+      </div>
+      <div class="md:col-span-2 hidden md:block">
+        <div class="rounded-2xl overflow-hidden -rotate-2 shadow-2xl shadow-electric/5">
+          <img src="images/competition-3.jpg" alt="Josh front lat spread at Radius competition" class="w-full h-96 object-cover object-[center_25%]" loading="lazy" />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -333,14 +346,6 @@
           <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&h=400&fit=crop&q=80"
                alt="Lean protein meal" class="w-full h-full object-cover" loading="lazy" />
         </div>
-        <div class="food-card rounded-2xl overflow-hidden h-48 bg-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600&h=400&fit=crop&q=80"
-               alt="Healthy burger wrap" class="w-full h-full object-cover" loading="lazy" />
-        </div>
-        <div class="food-card rounded-2xl overflow-hidden h-48 bg-card" data-aos="fade-up" data-aos-delay="150">
-          <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&h=400&fit=crop&q=80"
-               alt="Overnight oats healthy breakfast" class="w-full h-full object-cover" loading="lazy" />
-        </div>
       </div>
 
       <div class="text-center" data-aos="fade-up">
@@ -423,7 +428,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="mb-10" data-aos="fade-up">
         <div class="electric-rule w-10 opacity-60 mb-3"></div>
-        <h2 class="font-display font-black text-5xl md:text-7xl uppercase">9. All five stars.</h2>
+        <h2 class="font-display font-black text-5xl md:text-7xl uppercase"><span class="text-electric text-7xl md:text-9xl">9</span> reviews. All five stars.</h2>
         <div class="flex items-center gap-3 mt-4">
           <span class="text-electric font-display font-black text-4xl">5.0</span>
           <span class="text-electric text-xl">★★★★★</span>
@@ -547,6 +552,7 @@
 
   <!-- FOOTER -->
   <footer class="py-10 px-4 bg-panel border-t border-white/5">
+    <p class="text-center font-display font-black text-cream/8 text-4xl md:text-6xl uppercase tracking-widest mb-8 select-none">STOP THINKING. START.</p>
     <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-cream/25 text-xs">
       <div class="font-display font-black text-electric/70 text-xl tracking-widest uppercase">Joshfit · Est. 2014</div>
       <div class="text-center space-y-1">
@@ -619,9 +625,17 @@
     container.querySelectorAll('.reviews-grid').forEach(g => g.remove());
     const grid = document.createElement('div');
     grid.className = 'reviews-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4';
-    reviews.forEach(r => {
+    reviews.forEach((r, i) => {
       const card = document.createElement('div');
       card.className = 'bg-card rounded-2xl p-5 border border-white/5';
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(16px)';
+      card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      card.style.transitionDelay = (i * 0.08) + 's';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }));
       card.innerHTML = `<div class="text-electric text-sm mb-3">★★★★★</div>
         <p class="text-cream/75 text-sm leading-relaxed italic">"${r.text}"</p>
         <div class="mt-4 flex items-center gap-2.5">
