@@ -1,0 +1,8 @@
+# Internal preview-only files (served via local tunnel, never public)
+_*
+
+# Tool runtime artifacts
+.design-review/
+.gstack/
+.letta/
+.wrangler/
