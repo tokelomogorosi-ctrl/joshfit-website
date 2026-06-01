@@ -63,11 +63,22 @@
       height: 1px;
     }
 
-    .service-card { transition: border-color 0.2s, transform 0.2s; }
-    .service-card:hover { border-color: rgba(200,255,0,0.4); transform: translateY(-3px); }
+    .service-card {
+      transition: border-color 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+    .service-card:hover  { border-color: rgba(200,255,0,0.4); transform: translateY(-3px); }
+    .service-card:active { transform: translateY(-1px) scale(0.995); transition-duration: 0.08s; }
 
-    .food-card { transition: transform 0.3s; }
+    .food-card { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
     .food-card:hover { transform: scale(1.02); }
+
+    .tap-press { transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
+    .tap-press:active { transform: scale(0.97); transition-duration: 0.06s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .service-card, .food-card, .tap-press, .service-card:hover, .food-card:hover, .service-card:active, .tap-press:active { transition: none; transform: none; }
+    }
 
     .plyr--audio .plyr__controls {
       background: #181d28;
@@ -113,7 +124,7 @@
       <div class="flex items-center gap-3">
         <a href="tel:07889180224" class="hidden sm:block text-cream/50 text-sm hover:text-cream transition-colors">07889 180224</a>
         <a href="#book"
-           class="electric-btn font-bold text-sm px-5 py-2.5 rounded-xl transition-all hover:scale-105">
+           class="electric-btn tap-press font-bold text-sm px-5 py-2.5 rounded-xl hover:scale-105">
           Book a Session
         </a>
       </div>
@@ -132,12 +143,12 @@
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20book%20a%20session"
            target="_blank" rel="noopener"
-           class="whatsapp-btn text-white font-bold text-lg px-8 py-4 rounded-2xl transition-all hover:scale-105 flex items-center justify-center gap-3">
+           class="whatsapp-btn tap-press text-white font-bold text-lg px-8 py-4 rounded-2xl hover:scale-105 flex items-center justify-center gap-3">
           <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.1 1.51 5.833L.055 23.4l5.7-1.493A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.5-5.4-1.39l-.387-.23-4.016 1.053 1.07-3.912-.252-.4A9.952 9.952 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Book on WhatsApp
         </a>
         <a href="tel:07889180224"
-           class="border border-cream/20 text-cream font-bold text-lg px-8 py-4 rounded-2xl hover:border-electric/50 hover:text-electric transition-all flex items-center justify-center gap-3">
+           class="tap-press border border-cream/20 text-cream font-bold text-lg px-8 py-4 rounded-2xl hover:border-electric/50 hover:text-electric flex items-center justify-center gap-3">
           <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
           Call 07889 180224
         </a>
@@ -196,7 +207,7 @@
             <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-electric/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>9am to 9pm daily</div>
           </div>
           <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20book%20a%20PT%20session" target="_blank" rel="noopener"
-             class="mt-5 block text-center border border-electric/40 text-electric text-sm font-bold py-2.5 rounded-xl hover:bg-electric/10 transition-all">Book now →</a>
+             class="mt-5 block text-center border border-electric/40 text-electric text-sm font-bold py-2.5 rounded-xl tap-press hover:bg-electric/10">Book now →</a>
         </div>
 
         <div class="service-card bg-card rounded-2xl p-7 border border-white/5" data-aos="fade-up" data-aos-delay="100">
@@ -208,7 +219,7 @@
             <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-electric/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18l-1.5 8a2 2 0 0 1-2 1.7H6.5a2 2 0 0 1-2-1.7L3 11Z"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>No starvation, no guesswork</div>
           </div>
           <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20enquire%20about%20a%20nutrition%20plan" target="_blank" rel="noopener"
-             class="mt-5 block text-center border border-electric/40 text-electric text-sm font-bold py-2.5 rounded-xl hover:bg-electric/10 transition-all">Get a plan →</a>
+             class="mt-5 block text-center border border-electric/40 text-electric text-sm font-bold py-2.5 rounded-xl tap-press hover:bg-electric/10">Get a plan →</a>
         </div>
 
         <div class="service-card bg-card rounded-2xl p-7 border border-white/5" data-aos="fade-up" data-aos-delay="200">
@@ -220,7 +231,7 @@
             <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-electric/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>9am to 9pm daily</div>
           </div>
           <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20know%20more%20about%20online%20sessions" target="_blank" rel="noopener"
-             class="mt-5 block text-center border border-electric/40 text-electric text-sm font-bold py-2.5 rounded-xl hover:bg-electric/10 transition-all">Enquire →</a>
+             class="mt-5 block text-center border border-electric/40 text-electric text-sm font-bold py-2.5 rounded-xl tap-press hover:bg-electric/10">Enquire →</a>
         </div>
 
         <div class="service-card bg-card rounded-2xl p-7 border border-white/5 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
@@ -233,7 +244,7 @@
             <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-electric/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Mon and Thu, 6:30 to 7:15am</div>
           </div>
           <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20join%20the%20morning%20circuit%20class" target="_blank" rel="noopener"
-             class="mt-5 block text-center electric-btn text-sm font-black py-2.5 rounded-xl hover:scale-[1.02] transition-all">Join the class →</a>
+             class="mt-5 block text-center electric-btn tap-press text-sm font-black py-2.5 rounded-xl hover:scale-[1.02]">Join the class →</a>
         </div>
       </div>
     </div>
@@ -367,7 +378,7 @@
       <div class="text-center" data-aos="fade-up">
         <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%27d%20like%20to%20know%20more%20about%20The%20175%20Plan"
            target="_blank" rel="noopener"
-           class="inline-flex items-center gap-3 whatsapp-btn text-white font-bold text-lg px-10 py-4 rounded-2xl transition-all hover:scale-105">
+           class="inline-flex items-center gap-3 whatsapp-btn tap-press text-white font-bold text-lg px-10 py-4 rounded-2xl hover:scale-105">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.1 1.51 5.833L.055 23.4l5.7-1.493A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.5-5.4-1.39l-.387-.23-4.016 1.053 1.07-3.912-.252-.4A9.952 9.952 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Ask Josh about The 175 Plan
         </a>
@@ -469,12 +480,12 @@
         <source src="audio/track-01.mp3" type="audio/mp3" />
       </audio>
       <div class="mt-4 space-y-2" id="track-list">
-        <div class="track-item flex items-center gap-3 bg-card rounded-xl px-4 py-3 cursor-pointer border border-white/5 hover:border-electric/30 transition-all active" data-src="audio/track-01.mp3">
+        <div class="track-item flex items-center gap-3 bg-card rounded-xl px-4 py-3 cursor-pointer border border-white/5 hover:border-electric/30 transition-colors duration-200 active" data-src="audio/track-01.mp3">
           <span class="text-electric text-xs w-5">01</span>
           <span class="text-sm flex-1">TAPP OUT Anthem</span>
           <span class="text-cream/30 text-xs">0:00</span>
         </div>
-        <div class="track-item flex items-center gap-3 bg-card rounded-xl px-4 py-3 cursor-pointer border border-white/5 hover:border-electric/30 transition-all" data-src="audio/track-02.mp3">
+        <div class="track-item flex items-center gap-3 bg-card rounded-xl px-4 py-3 cursor-pointer border border-white/5 hover:border-electric/30 transition-colors duration-200" data-src="audio/track-02.mp3">
           <span class="text-electric text-xs w-5">02</span>
           <span class="text-sm flex-1">The One Seventy Five Plan</span>
           <span class="text-cream/30 text-xs">0:00</span>
@@ -558,7 +569,7 @@
 
         <p id="book-error" class="text-red-400 text-xs mb-3 hidden">Please fill in name, goal and session type.</p>
         <button onclick="bookSession()"
-          class="w-full whatsapp-btn text-white font-bold text-lg py-4 rounded-2xl transition-all hover:scale-[1.02] flex items-center justify-center gap-3">
+          class="w-full whatsapp-btn tap-press text-white font-bold text-lg py-4 rounded-2xl hover:scale-[1.02] flex items-center justify-center gap-3">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.1 1.51 5.833L.055 23.4l5.7-1.493A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.5-5.4-1.39l-.387-.23-4.016 1.053 1.07-3.912-.252-.4A9.952 9.952 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Send to Josh on WhatsApp
         </button>
