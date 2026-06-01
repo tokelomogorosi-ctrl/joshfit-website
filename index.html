@@ -36,16 +36,26 @@
   <style>
     html { scroll-behavior: smooth; }
 
-    .hero-bg {
+    .hero-bg { position: relative; isolation: isolate; }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
       background-image: url('images/hero-poster.jpg');
       background-size: cover;
       background-position: center 35%;
       animation: heroBreath 20s ease-in-out infinite;
+      transform-origin: center 35%;
+      will-change: transform;
+      z-index: -1;
     }
 
     @keyframes heroBreath {
-      0%, 100% { background-size: 100%; }
-      50% { background-size: 108%; }
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.06); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-bg::before { animation: none; }
     }
 
     .electric-rule {
@@ -111,7 +121,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="relative min-h-screen flex items-end justify-center overflow-hidden hero-bg pt-16">
+  <section class="relative min-h-[100dvh] flex items-end justify-center overflow-hidden hero-bg pt-16">
     <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20"></div>
     <div class="relative z-10 max-w-4xl mx-auto px-4 pb-20 text-center w-full">
       <p class="text-electric/70 text-xs tracking-[0.4em] uppercase mb-4">Great Yarmouth & Lowestoft · Est. 2014</p>
