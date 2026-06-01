@@ -99,6 +99,31 @@
 
     .before-after-img { filter: grayscale(20%); }
 
+    /* scroll progress: CSS Scroll-Linked Animations where supported, JS fallback below */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #C8FF00, #96c200);
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      z-index: 60;
+      will-change: transform;
+      pointer-events: none;
+    }
+    @supports (animation-timeline: scroll()) {
+      .scroll-progress {
+        animation: scrollGrow linear both;
+        animation-timeline: scroll(root);
+      }
+      @keyframes scrollGrow {
+        from { transform: scaleX(0); }
+        to   { transform: scaleX(1); }
+      }
+    }
+
     .competition-grid::before {
       content: '';
       position: absolute;
@@ -113,6 +138,9 @@
   </style>
 </head>
 <body class="bg-ink text-cream font-sans">
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <!-- NAV -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-ink/90 backdrop-blur-sm border-b border-white/5">
@@ -266,7 +294,7 @@
           <cite class="text-electric/60 text-xs mt-2 block not-italic tracking-wider">WARRIOR000PRIEST · GOOGLE</cite>
         </blockquote>
       </div>
-      <div class="competition-grid relative grid grid-cols-3 grid-rows-2 gap-3 h-[480px]" data-aos="fade-up" data-aos-delay="100">
+      <div class="competition-grid relative grid grid-cols-3 grid-rows-2 gap-3 h-[360px] sm:h-[480px]" data-aos="fade-up" data-aos-delay="100">
         <div class="rounded-2xl overflow-hidden row-span-2 col-span-2">
           <img src="images/competition-medal.jpg" alt="Josh with medal at Radius bodybuilding competition" class="w-full h-full object-cover object-[center_25%]" loading="lazy" width="945" height="1848" />
         </div>
@@ -696,6 +724,26 @@
     }
   });
   AOS.init({ duration:700, once:true, offset:60 });
+
+  /* Scroll progress: JS fallback for browsers without animation-timeline (Safari, older Firefox).
+     Uses requestAnimationFrame coalescing so scroll handler never thrashes the main thread. */
+  (function () {
+    if (CSS && CSS.supports && CSS.supports('animation-timeline: scroll()')) return;
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    let ticking = false;
+    function update() {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const pct = max > 0 ? h.scrollTop / max : 0;
+      bar.style.transform = 'scaleX(' + pct + ')';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  })();
   </script>
 
 </body>
