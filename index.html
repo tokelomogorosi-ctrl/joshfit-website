@@ -36,6 +36,15 @@
   <style>
     html { scroll-behavior: smooth; }
 
+    /* No-JS fallback: AOS adds [data-aos] elements at opacity:0 BEFORE the script boots.
+       If JS is blocked, slow, or the user has reduced-motion preferences, content stays
+       invisible. Force visibility unless AOS has successfully initialised. */
+    [data-aos] { opacity: 1; transform: none; }
+    html.aos-loaded [data-aos]:not(.aos-animate) { opacity: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      [data-aos] { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
+
     .hero-bg { position: relative; isolation: isolate; }
     .hero-bg::before {
       content: '';
@@ -723,7 +732,13 @@
       });
     }
   });
-  AOS.init({ duration:700, once:true, offset:60 });
+  /* Boot AOS only if user has not requested reduced motion AND JS is healthy.
+     Mark html.aos-loaded so the no-JS fallback (opacity:1 default) gives way
+     to the AOS hide/reveal cycle. */
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('aos-loaded');
+    AOS.init({ duration:700, once:true, offset:60 });
+  }
 
   /* Scroll progress: JS fallback for browsers without animation-timeline (Safari, older Firefox).
      Uses requestAnimationFrame coalescing so scroll handler never thrashes the main thread. */
