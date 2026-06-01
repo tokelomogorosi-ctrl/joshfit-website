@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Page not found. Joshfit Personal Training, Great Yarmouth and Lowestoft." />
+  <title>Page not found | Joshfit Personal Training</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#07090d" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = { theme: { extend: { colors: {
+      ink:'#07090d', panel:'#0f1318', card:'#181d28', lift:'#20273a',
+      electric:'#C8FF00', cream:'#f0efe8',
+    }, fontFamily: { display:['Barlow Condensed','Impact','sans-serif'], sans:['Inter','sans-serif'] } } } }
+  </script>
+  <style>
+    body { background:#07090d; color:#f0efe8; font-family:'Inter',sans-serif; min-height:100vh; display:flex; align-items:center; }
+    h1 { font-family:'Barlow Condensed','Impact',sans-serif; text-transform:uppercase; letter-spacing:-0.01em; }
+    .four-oh-four {
+      font-family:'Barlow Condensed','Impact',sans-serif;
+      font-weight:900;
+      font-size:clamp(120px, 28vw, 300px);
+      line-height:0.85;
+      letter-spacing:-0.04em;
+      color:#C8FF00;
+    }
+    .electric-btn { background:#C8FF00; color:#07090d; transition: transform .2s, box-shadow .25s; }
+    .electric-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 32px -12px rgba(200,255,0,0.5); }
+  </style>
+</head>
+<body>
+  <main class="w-full max-w-2xl mx-auto px-6 text-center">
+    <p class="text-electric/70 text-xs tracking-[0.5em] uppercase mb-6">Joshfit · Page Not Found</p>
+    <div class="four-oh-four mb-6">404</div>
+    <h1 class="text-3xl md:text-4xl font-black uppercase mb-4">Wrong rep.</h1>
+    <p class="text-cream/60 leading-relaxed max-w-md mx-auto mb-10">The page you were looking for is not here. Try the home page, or message Josh straight on WhatsApp.</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="/joshfit-website/" class="electric-btn font-display font-black tracking-[0.1em] uppercase text-sm px-7 py-4 rounded-lg">
+        Back to Joshfit
+      </a>
+      <a href="https://wa.me/447889180224?text=Hi%20Josh%2C%20I%20landed%20on%20a%20404%20page" target="_blank" rel="noopener"
+         class="border border-white/15 hover:border-electric text-cream font-display font-black tracking-[0.1em] uppercase text-sm px-7 py-4 rounded-lg transition-colors">
+        WhatsApp Josh
+      </a>
+    </div>
+  </main>
+</body>
+</html>
