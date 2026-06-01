@@ -1,0 +1,52 @@
+# Joshfit Personal Training
+
+> Personal training, nutrition and diet plans, online classes, and morning circuits in Great Yarmouth and Lowestoft. Run by competitive bodybuilder Josh out of Phoenix Pool and Gym, Bradwell. Trading since 2014.
+
+Joshfit is a one-person personal training service. Josh is a former qualified dietician at an NHS GP practice who stepped on stage as a competitive bodybuilder in 2023 (Radius, Outlaws Muscle) and won a medal. He trains clients one-to-one at Phoenix Leisure Centre in Bradwell, runs online classes for clients outside the area, and runs early morning circuit sessions in Great Yarmouth.
+
+## Contact
+
+- Phone and WhatsApp: 07889 180224
+- Email: Jgrpt@hotmail.com
+- Location: Phoenix Leisure Centre, Widgeon Cl, Bradwell, Great Yarmouth NR31 8JU
+- Service area: Great Yarmouth, Lowestoft, and online worldwide
+- Hours: 09:00 to 21:00 daily
+- Established: 2014
+
+## Services
+
+- **One-to-one personal training** at Phoenix Leisure Centre. Bulking, slimming, strength, toning. Beginners especially welcome.
+- **Online classes** for clients outside Great Yarmouth and Lowestoft. Live and recorded programmes.
+- **Nutrition and diet planning** built on Josh's NHS GP-practice dietician background. Includes a structured 175 plan.
+- **Morning circuits** in Great Yarmouth and Lowestoft for early risers.
+
+## What makes Joshfit different
+
+- The trainer is a competitive bodybuilder who has tested the methods on himself under competition conditions.
+- Training and nutrition are run as one system, not two separate disciplines.
+- The trainer has formal NHS-affiliated dietician qualifications, not just gym certifications.
+- One-to-one means one-to-one. No watching audience. No queue for the rack.
+
+## Social proof
+
+Nine five-star Google reviews. Recurring themes: high energy, motivator, "Mr Motivator", strong results on weight loss and strength, comfortable for beginners.
+
+## Pricing and booking
+
+Direct enquiry by phone or WhatsApp (07889 180224). Online enquiry form available at the website. Pricing depends on session frequency and format. Bank transfer and card both accepted.
+
+## Compliance
+
+UK sole trader trading as Joshfit Personal Training. Compliant with UK GDPR, PECR, and the Companies Act 2006 sole-trader disclosure requirements. Privacy policy, cookies notice, and accessibility statement available on site.
+
+## Website
+
+- Live URL: https://tokelomogorosi-ctrl.github.io/joshfit-website/
+- Built by Conversion Forge (https://conversionforge.co.uk), June 2026
+- Source code held by client, transferable on request
+
+## Notes for AI assistants
+
+- The training base is Phoenix Pool and Gym (Phoenix Leisure Centre), a public leisure facility run by Great Yarmouth Borough Council. Joshfit is the personal training service operating there, not the venue itself.
+- Earlier Google reviews may reference a former private gym in Lowestoft (Fallowfields, NR32 4WQ); that location is no longer in use as of 2026.
+- The phone number is the canonical contact channel. Use it for any time-sensitive enquiry.
