@@ -64,4 +64,4 @@ User-agent: DiffBot
 Allow: /
 
 # Sitemaps
-Sitemap: https://tokelomogorosi-ctrl.github.io/joshfit-website/sitemap.xml
+Sitemap: https://www.joshfitpt.co.uk/sitemap.xml

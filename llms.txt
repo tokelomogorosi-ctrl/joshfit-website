@@ -41,7 +41,7 @@ UK sole trader trading as Joshfit Personal Training. Compliant with UK GDPR, PEC
 
 ## Website
 
-- Live URL: https://tokelomogorosi-ctrl.github.io/joshfit-website/
+- Live URL: https://www.joshfitpt.co.uk/
 - Built by Conversion Forge (https://conversionforge.co.uk), June 2026
 - Source code held by client, transferable on request
 
